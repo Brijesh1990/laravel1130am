@@ -1,7 +1,9 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogsController;
-use App\Http\Controllers\ContactController;
+// use App\Http\Controllers\BlogsController;
+// use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\RegisterEmployeeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +14,6 @@ use App\Http\Controllers\ContactController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -26,8 +27,13 @@ use App\Http\Controllers\ContactController;
 // Route::get('/', function () {
 //      return view('welcome');
 //  });
-// blogs template home page routing
-Route::get('/',[BlogsController::class,'index']);
-// blogs templates contact us page routing
-Route::get('/contact-us',[ContactController::class,'index']);
 
+// // blogs template home page routing
+// Route::get('/',[BlogsController::class,'index']);
+// // blogs templates contact us page routing
+// Route::get('/contact-us',[ContactController::class,'index']);
+
+// cruid operations for employee management systems 
+Route::get('/',[EmployeeController::class,'index']);
+Route::get('/register-with-us',[RegisterEmployeeController::class,'index']);
+Route::get('/admin-login',[AdminController::class,'index']);

@@ -1,0 +1,73 @@
+body 
+{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+}
+.navbar
+{
+    width: 100%;
+    height: auto;
+}
+.navbar a 
+{
+    text-decoration: none;
+    list-style-type: none;
+    color: black !important;
+}
+.footer
+{
+    width: 100%;
+    height: auto;
+    background-color: #131336 !important;
+}
+.footer-link li 
+{
+    display: block !important;
+}
+.footer-link a 
+{
+    color: white;
+    text-decoration: none !important;
+    list-style-type: none !important;
+}
+#btn 
+{
+    background-color: #306fcf !important;
+    color: white !important;
+}
+.bi-facebook,.bi-instagram,.bi-google,.bi-telegram,.bi-twitter
+{
+    font-size: 24px;
+    letter-spacing: 10px;
+    color: #306fcf;
+    transition: 0.5s ease all;
+}
+.crt 
+{
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #306fcf;
+ 
+}
+.bi-facebook:hover,
+.bi-instagram:hover,
+.bi-google:hover,
+.bi-telegram:hover,
+.bi-twitter:hover 
+{
+    font-size: 27px;
+    letter-spacing: 10px;
+    color: #306fcf;
+    transform: rotate(360deg);
+    color: red;
+    position: relative !important;
+}
+
+.modal-dialog 
+{
+    max-width:60% !important;
+    height: auto;
+    margin: auto;
+}
