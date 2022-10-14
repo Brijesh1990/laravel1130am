@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RegisterEmployeeController;
+use App\Http\Controllers\EmployeeContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,11 +24,9 @@ use App\Http\Controllers\RegisterEmployeeController;
 // });
 
 // blogs file load here
-
 // Route::get('/', function () {
 //      return view('welcome');
 //  });
-
 // // blogs template home page routing
 // Route::get('/',[BlogsController::class,'index']);
 // // blogs templates contact us page routing
@@ -36,4 +35,8 @@ use App\Http\Controllers\RegisterEmployeeController;
 // cruid operations for employee management systems 
 Route::get('/',[EmployeeController::class,'index']);
 Route::get('/register-with-us',[RegisterEmployeeController::class,'index']);
+// contact us
+Route::get('/contactus',[EmployeeContactController::class,'index']);
+Route::post('/contactus',[EmployeeContactController::class,'store']);
+// admin
 Route::get('/admin-login',[AdminController::class,'index']);

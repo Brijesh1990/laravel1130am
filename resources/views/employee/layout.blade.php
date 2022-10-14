@@ -19,7 +19,7 @@
 </head>
 <body>
 <!-- navbar start here -->
-<nav class="navbar navbar-expand-lg navbar-light bg-info">
+<nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Employee Management systems</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,6 +46,10 @@
             <li><a class="dropdown-item" href="/register-with-us">SignUp</a></li>
          
           </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/contactus">ContactUs</a>
         </li>
       </ul>    
     </div>

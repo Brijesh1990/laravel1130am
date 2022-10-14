@@ -9,12 +9,17 @@ body
 {
     width: 100%;
     height: auto;
+    background-color: #131336 !important;
 }
 .navbar a 
 {
     text-decoration: none;
     list-style-type: none;
-    color: black !important;
+    color: white !important;
+}
+.dropdown-menu
+{
+    background-color: #131336;
 }
 .footer
 {

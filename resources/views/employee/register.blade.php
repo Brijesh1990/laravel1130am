@@ -67,11 +67,7 @@
             <select name="city" class="form-control" placeholder="select city *">
               <option value="">-select city-</option>
             </select>
-          </div>
-
-          
-     
-
+</div>
           <div class="form-group mt-2">
             <input type="submit" name="reg" class="btn btn-lg" id="btn" placeholder="Enter FirstName *"
               value="Register">
