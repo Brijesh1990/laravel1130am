@@ -3,13 +3,39 @@
  Home page
  @endsection
  @section('content')
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+ <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+ <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+ <script>
+$(document).ready(function () {
+    $('#example').DataTable();
+});
+ </script>
  <!--cart start here-->
   <div class="container mt-5">
         <button type="button" class="btn btn-lg btn-danger text-white mt-1" data-bs-toggle="modal" data-bs-target="#ademp">Add Employee here<i class="bi bi-person"></i></button>
         <h2 class="text-success mt-5">View employee details<i class="bi bi-person"></i></h2>
         <hr class="border border-2 border-danger">
-        <table class="table table-bordered table-stripped">
-            <tr class="text-center">
+         <!-- pass success message --> 
+       @if(Session('success'))
+         <div class="alert alert-success">
+            <span class="text-dark">Hey! {{ session('success') }}</span>
+         </div> 
+        @endif
+        @if(Session('del'))
+         <div class="alert alert-danger">
+            <span class="text-dark">Hey! {{ session('del') }}</span>
+         </div> 
+        @endif
+
+        @if(Session('upd'))
+         <div class="alert alert-success">
+            <span class="text-dark">Hey! {{ session('upd') }}</span>
+         </div> 
+        @endif
+        <table class="table table-bordered table-stripped" id="example">
+        <thead>   
+        <tr class="text-center">
                 <th>id</th>
                 <th>Firtname</th>
                 <th>Lastname</th>
@@ -19,19 +45,25 @@
                 <th>Address</th>
                 <th>Action</th>
             </tr>
+</thead> 
+
+  <tbody>
+            @foreach($data as $row)
             <tr class="text-center">
-                <td>101</td>
-                <td>brijesh</td>
-                <td>pandey</td>
-                <td>pandey</td>
-                <td>pandey</td>
-                <td>pandey</td>
-                <td>pandey</td>
-                <td><a href="" class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill text-white"></i></a></td>
+                <td>{{$row->id}}</td>
+                <td>{{$row->firstname}}</td>
+                <td>{{$row->lastname}}</td>
+                <td>{{$row->email}}</td>
+                <td>{{$row->mobile}}</td>
+                <td>{{$row->gender}}</td>
+                <td>{{$row->address}}</td>
+                <td><a href='{{URL("/".$row->id)}}' class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill text-white"></i></a> |&nbsp;<a href='{{URL("/editemployeedata/".$row->id)}}' class="btn btn-sm btn-info"><i class="bi bi-pencil text-white"></i></a></td>
 
             </tr>
+            @endforeach
+         
             
-        </tr>
+</tbody>
         </table>
     </div>
     <!-- add employee modal load here -->
@@ -48,8 +80,22 @@
       <div class="col-md-7 p-5">
      <button
             class="btn btn-sm btn-danger float-end" data-bs-dismiss="modal">&times;</button>
+
+             <!-- pass a validations error message -->
+       @if($errors->any())
+        <div class="alert alert-danger">
+         <ul>
+           @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>    
+            @endforeach 
+         
+         <ul>
+        </div>
+        @endif
+      
+
         <form method="post" class="row g-3 needs-validation" novalidate>
-       
+        @csrf
 
         <div class="col-md-12">
             <input type="text" name="firstname" class="form-control" placeholder="Enter Firstname *">
@@ -71,7 +117,7 @@
             Female <input type="radio" name="gender" value="female">
           </div>
           <div class="col-md-12">
-            <textarea name="address" class="form-control" placeholder="Enter Mobile *"></textarea>
+            <textarea name="address" class="form-control" placeholder="Enter Address *"></textarea>
           </div>
 
           <div class="col-12">

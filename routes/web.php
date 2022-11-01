@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RegisterEmployeeController;
 use App\Http\Controllers\EmployeeContactController;
+use App\Http\Controllers\EmployeeAddController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,5 +39,12 @@ Route::get('/register-with-us',[RegisterEmployeeController::class,'index']);
 // contact us
 Route::get('/contactus',[EmployeeContactController::class,'index']);
 Route::post('/contactus',[EmployeeContactController::class,'store']);
+// add & manage employee 
+Route::get('/',[EmployeeAddController::class,'index']);
+Route::post('/',[EmployeeAddController::class,'store']);
+Route::get('/',[EmployeeAddController::class,'show']);
+Route::get('/{id}',[EmployeeAddController::class,'destroy']);
+Route::get('/editemployeedata/{id}',[EmployeeAddController::class,'edit']);
+Route::post('/editemployeedata/{id}',[EmployeeAddController::class,'update']);
 // admin
 Route::get('/admin-login',[AdminController::class,'index']);
